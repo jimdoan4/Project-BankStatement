@@ -10,6 +10,13 @@
 .account-tabs .card {
     border: none;
 }
+
+.form-inline button {
+    background-color: #eaeaea;
+    color: black;
+}
+
+
 table { border: 1px solid #5c743d;
     width: 95%;
     border-spacing: 0; 
