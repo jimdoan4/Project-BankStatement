@@ -1,10 +1,9 @@
 .account-tabs button {
-    background-color: #eaeaea;
-    color: black;
+    background-color: black;
+    color: white;
     border: none;
     font-weight: 500;
     margin: 0px 25px;
-    padding: 15px 40px;
 }
 
 .account-tabs .card {
@@ -16,19 +15,69 @@
     color: black;
 }
 
+.form-inline button:hover {
+    background-color: white !important;
+    color: black !important;
+}
 
-table { border: 1px solid #5c743d;
-    width: 95%;
-    border-spacing: 0; 
-    margin: auto;
-   }
-td, th { padding: 15px; 
+.btn-primary {
+    padding: 14px 30px !important;
+}
+
+.btn-primary:hover {
+    background-color: white !important;
+    color: black !important;
+}
+
+.transaction-btn {
+    padding: 10px 23px !important;
+}
+
+.transaction-btn:hover {
+    background-color: #eaeaea !important;
+    color: black !important;
+}
+
+.delete-btn:hover {
+    color: red;
+}
+
+.delete-btn {
+    color: red;
+}
+
+.container .col {
     border: 3px solid white;
-     font-family: Arial, sans-serif;  } 
-caption { font-family: Verdana, sans-serif;
-       font-size: 1.2em;
-       font-weight: bold; 
-       padding-bottom: 5px;}
-tr { background-color:#eaeaea; } 
-tr:first-of-type { background-color: #d20000; 
-               color: white; }
+    padding-top: 15px;
+    background-color: #eaeaea;
+}
+
+table {
+    border: 1px solid #5c743d;
+    width: 95%;
+    border-spacing: 0;
+    margin: auto;
+}
+
+td,
+th {
+    padding: 15px;
+    border: 3px solid white;
+    font-family: Arial, sans-serif;
+}
+
+caption {
+    font-family: Verdana, sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+tr {
+    background-color: #eaeaea;
+}
+
+tr:first-of-type {
+    background-color: #d20000;
+    color: white;
+}

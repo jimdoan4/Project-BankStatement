@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light p-4">
             <h4>Business Economy Chk -7794</h4>
             <div class="ml-auto">
                 <form class="form-inline my-2 my-lg-0">
@@ -21,116 +21,180 @@
                 </form>
             </div>
         </nav>
-        <div class="container-fluid text-center mt-4 account-tabs">
-
-            <button class="btn" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false"
-                aria-controls="multiCollapseExample1">Budget Summary</button>
-            <button class="btn" type="button" data-toggle="collapse" data-target="#multiCollapseExample2"
+        <div class="container-fluid jumbotron text-center account-tabs">
+            <button class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button"
+                aria-expanded="false" aria-controls="multiCollapseExample1">Budget Summary</button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2"
                 aria-expanded="false" aria-controls="multiCollapseExample2">My Statement</button>
-            <button class="btn" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false"
-                aria-controls="multiCollapseExample1 multiCollapseExample2">Find Transactions
-            </button>
-
-            <div class="row">
+                <button class="btn btn-primary" type="button" data-toggle="collapse">Find Transaction</button>
+            <div class="row m-4">
                 <div class="col-12">
-                    <div class="collapses multi-collapse" id="multiCollapseExample1">
-                        <div class="card">
-                            <table
-                                summary="A description of the specialty coffee menu items with one item listed in each row. The first column contains the name of the menu item. The second column describes the specialty coffee. The third column contains the price.">
+                    <table>
+                        <tr>
+                            <th>Income</th>
+                            <th>Expense</th>
+                            <th>Balance</th>
+
+                        </tr>
+                        <tr>
+                            <td id="money-plus" class="money plus">+0.00</td>
+                            <td id="money-minus" class="money minus">-0.00</td>
+                            <td id="balance">0.00</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row m-4">
+                <div class="col-12">
+                    <div class="collapse.show" id="multiCollapseExample1">
+                        <div class="text-center">
+                            <table>
                                 <tr>
-                                    <th>Items:</th>
+                                    <th>Items</th>
                                     <th>Description</th>
                                     <th>Date</th>
-                                    <th>Price</th>
+                                    <th>Amount</th>
                                 </tr>
                                 <tr>
-                                    <td>iPad pro</td>
-                                    <td>Purchased an iPad Pro from the apple store </td>
-                                    <td>02/14/2015</td>
-                                    <td>$ 700</td>
+                                    <td>T-Mobile<button class="delete-btn" onclick="removeTransaction">x</button></td>
+                                    <td>Phone and insurance payment for Iphone X<button class="delete-btn"
+                                            onclick="removeTransaction">x</button></td>
+                                    <td>01/03/2020<button class="delete-btn" onclick="removeTransaction">x</button></td>
+                                    <td>- $105<button class="delete-btn" onclick="removeTransaction">x</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Progressive Insurance<button class="delete-btn"
+                                            onclick="removeTransaction">x</button></td>
+                                    <td>Payment for car insurance to 2018 Toyota Prius<button class="delete-btn"
+                                            onclick="removeTransaction">x</button></td>
+                                    <td>01/02/2020<button class="delete-btn" onclick="removeTransaction">x</button></td>
+                                    <td>- $125<button class="delete-btn" onclick="removeTransaction">x</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Townes Luxury Apartment<button class="delete-btn"
+                                            onclick="removeTransaction">x</button></td>
+                                    <td>Monthly rental payment<button class="delete-btn"
+                                            onclick="removeTransaction">x</button></td>
+                                    <td>01/01/2020<button class="delete-btn" onclick="removeTransaction">x</button></td>
+                                    <td>- $1200<button class="delete-btn" onclick="removeTransaction">x</button></td>
+                                </tr>
+                                <tr id="list" class='list'>
+
                                 </tr>
                             </table>
                         </div>
-                        <div class="jumbotron m-4">
-                            <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <form>
-                                    <div class="form-row m-5">
-                                        <div class="form-group col-md-4">
-                                            <label for="text">Items</label>
-                                            <input type="text" class="form-control" id="inputEmail4">
+
+
+                        <div class="row m-5 justify-content-center">
+                            <div class="col-10">
+                                <div class="card p-3">
+                                    <form id="form">
+                                        <div class="form-row m-4">
+                                            <div class="form-group col-md-4">
+                                                <label for="text">Item</label>
+                                                <input type="text" id="text" class="form-control"
+                                                    placeholder="Enter text..." />
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="date">Date</label>
+                                                <input type="text" id="date" class="form-control"
+                                                    placeholder="Enter purchase date..." />
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="amount">Amount</label>
+                                                <input type="number" id="amount" class="form-control"
+                                                    placeholder="Enter amount..." />
+                                            </div>
+
+                                            <div class="form-group col-md-12">
+                                                <label for="desc">Description</label>
+                                                <textarea type="text" id="desc" placeholder="Enter description..."
+                                                    class="form-control" rows="6"></textarea>
+                                            </div>
+                                            <div class="col-12">
+                                                <button class="btn transaction-btn m-3">Add transaction</button>
+                                            </div>
                                         </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="date">Date</label>
-                                            <input type="date" class="form-control" id="inputEmail4">
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="number">Price</label>
-                                            <input type="number" class="form-control" id="inputEmail4">
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <label for="text">Description</label>
-                                            <textarea type="text" class="form-control" 
-                                                placeholder="Description" rows="3"></textarea>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="collapse" id="multiCollapseExample2">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <table>
+                                                <tr>
+                                                    <th>Current Statement January 2020</th>
+                                                </tr>
+                                            </table>
                                         </div>
                                     </div>
-                            <button type="submit" class="btn btn-primary mb-5">Add transaction</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                            <!-- <form id="form">
-                                <div class="form-control">
-                                    <label for="text">Text</label>
-                                    <input type="text" id="text" placeholder="Enter text..." />
-                                </div>
-                                <div class="form-control">
-                                    <label for="amount">Amount <br />
-                                        (negative - expense, positive - income)</label>
-                                    <input type="number" id="amount" placeholder="Enter amount..." />
-                                </div>
-                                <button class="btn">Add transaction</button>
-                            </form> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="collapse multi-collapse" id="multiCollapseExample2">
-                    <div class="card">
-                        <table
-                            summary="A description of the specialty coffee menu items with one item listed in each row. The first column contains the name of the menu item. The second column describes the specialty coffee. The third column contains the price.">
-                            <tr>
-                                <th>Items:</th>
-                                <th>Description</th>
-                                <th>Date</th>
-                                <th>Price</th>
-                            </tr>
-                            <tr>
-                                <td>iPad pro</td>
-                                <td>Purchased an iPad Pro from the apple store </td>
-                                <td>02/14/2015</td>
-                                <td>$ 700</td>
-                            </tr>
-                            <tr>
-                                <td>Monitor</td>
-                                <td>Purchased a 34inch LG Monitor UMC34-B online from Amazon .</td>
-                                <td>03/13/2015</td>
-                                <td>$ 900</td>
-                            </tr>
-                            <tr>
-                                <td>Galaxy note 5</td>
-                                <td>Purchased a Samsung Galaxy note 5.</td>
-                                <td>04/13/2015</td>
-                                <td>$ 800</td>
-                            </tr>
-                        </table>
+                                    <table>
+                                        <tr>
+                                            <th>Items</th>
+                                            <th>Description</th>
+                                            <th>Date</th>
+                                            <th>Price</th>
+                                        </tr>
+                                        <tr>
+                                            <td>iPad pro</td>
+                                            <td>Purchased an iPad Pro from the apple store </td>
+                                            <td>02/14/2020</td>
+                                            <td>- $700</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Monitor</td>
+                                            <td>Purchased a 34inch LG Monitor UMC34-B online from Amazon</td>
+                                            <td>03/13/2020</td>
+                                            <td>- $900</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Galaxy note 5</td>
+                                            <td>Purchased a Samsung Galaxy note 5</td>
+                                            <td>04/13/2020</td>
+                                            <td>- $800</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cracker Barrel</td>
+                                            <td>Breakfast at Morning Side Rd</td>
+                                            <td>04/12/2020</td>
+                                            <td>- $25</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gucci Purse</td>
+                                            <td>Purchased a Gucci bad at Lenox Square Mall</td>
+                                            <td>04/11/2020</td>
+                                            <td>- $2000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dog food</td>
+                                            <td>Purchased a dog food for Gus</td>
+                                            <td>04/11/2020</td>
+                                            <td>- $30</td>
+                                        </tr>
+                                        <tr>
+                                            <td>School supplies</td>
+                                            <td>Purchased a school supplies for Sara upcoming school year</td>
+                                            <td>04/10/2020</td>
+                                            <td>- $20</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Barbie dolls</td>
+                                            <td>Purchased a collectible doll for Sara</td>
+                                            <td>04/09/2020</td>
+                                            <td>- $40</td>
+                                        </tr>
+                                    </table>
 
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
         <script src="script.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
