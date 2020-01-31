@@ -45,3 +45,55 @@ function addTransaction(e) {
         date.value = "";
     }
 }
+
+
+// Generate random ID
+function generateID() {
+    return Math.floor(Math.random() * 100000000);
+}
+
+// Add transactions to DOM list
+function addTransactionDOM(transaction) {
+    // Get sign
+    const sign = transaction.amount < 0 ? '- $' : '+ $';
+    const item = document.createElement('td');
+    const description = document.createElement('td');
+    const date = document.createElement('td');
+    const amnt = document.createElement('td');
+
+    // Add class based on value
+    item.classList.add(transaction.amount < 0 ? 'minus' : 'plus');
+
+    item.innerHTML = `
+    ${transaction.text}  <button class="delete-btn" onclick="removeTransaction(${
+    transaction.id
+  })">x</button>
+  `;
+
+    date.innerHTML = `
+   ${transaction.date} <button class="delete-btn" onclick="removeTransaction(${
+    transaction.id
+  })">x</button>
+  `;
+
+    amnt.innerHTML = `
+ ${sign}${Math.abs(
+  transaction.amount
+)} <button class="delete-btn" onclick="removeTransaction(${
+  transaction.id
+})">x</button>
+`;
+
+    description.innerHTML = `
+${transaction.desc} <button class="delete-btn" onclick="removeTransaction(${
+ transaction.id
+})">x</button>
+`;
+
+    list.appendChild(item);
+    list.appendChild(description);
+    list.appendChild(date);
+    list.appendChild(amnt);
+
+}
+
