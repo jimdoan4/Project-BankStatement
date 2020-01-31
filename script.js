@@ -117,3 +117,13 @@ function updateValues() {
     money_plus.innerText = `$${income}`;
     money_minus.innerText = `$${expense}`;
 }
+
+// Remove transaction by ID
+function removeTransaction(id) {
+    transactions = transactions.filter(transaction => transaction.id !== id);
+
+    updateLocalStorage();
+
+    init();
+}
+
